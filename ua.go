@@ -30,6 +30,7 @@ const (
 	Android      = "Android"
 	MacOS        = "macOS"
 	IOS          = "iOS"
+	DARWIN       = "Darwin"
 	Linux        = "Linux"
 	FreeBSD      = "FreeBSD"
 	ChromeOS     = "ChromeOS"
@@ -87,6 +88,12 @@ func Parse(userAgent string) UserAgent {
 		ua.Device = tokens.findAndroidDevice(osIndex)
 
 	case tokens.exists("iPhone"):
+		ua.OS = IOS
+		ua.OSVersion = tokens.findMacOSVersion()
+		ua.Device = "iPhone"
+		ua.Mobile = true
+
+	case tokens.exists("Darwin"):
 		ua.OS = IOS
 		ua.OSVersion = tokens.findMacOSVersion()
 		ua.Device = "iPhone"
@@ -288,6 +295,16 @@ func Parse(userAgent string) UserAgent {
 	case tokens.exists("NetFront"):
 		ua.Name = "NetFront"
 		ua.Version = tokens.get("NetFront")
+		ua.Mobile = true
+
+	case tokens.exists("Cantina-Stage"):
+		ua.Name = "Cantina"
+		ua.Version = tokens.get("Cantina-Stage")
+		ua.Mobile = true
+
+	case tokens.exists("Cantina"):
+		ua.Name = "Cantina"
+		ua.Version = tokens.get("Cantina")
 		ua.Mobile = true
 
 	// if chrome and Safari defined, find any other token sent descr

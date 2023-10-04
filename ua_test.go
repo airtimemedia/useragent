@@ -149,6 +149,11 @@ var testTable = [][]string{
 	{"Mozilla/5.0 (Linux; Android 9; m5621 Build/PPR2.180905.006.A1; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.158 Safari/537.36", ua.Chrome, "66.0.3359.158", "mobile", ua.Android, "m5621"},
 	{"Mozilla/5.0 (Linux; Android 10; meanIT_X20 Build/QP1A.190711.020) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.5481.153 Safari/537.36", ua.Chrome, "110.0.5481.153", "mobile", ua.Android, "meanIT_X20"},
 	{"Mozilla/5.0 (Linux; Android 10;)", "Mozilla/5.0 (Linux; Android 10;)", "", "mobile", ua.Android},
+
+	// iOS versions
+	{"Cantina/12345 CFNetwork/1234.5.6 Darwin/22.6.0", "Cantina", "12345", "mobile", "iOS"},
+	{"Cantina-Stage/12345 CFNetwork/1234.5.6 Darwin/22.6.0", "Cantina", "12345", "mobile", "iOS"},
+
 	// {`() { ignored; }; echo Content-Type: text/plain ; echo ; echo "bash_cve_2014_6271_rce Output : $((70+91))"`, "", "mobile", ua.Android},
 	//{`${jndi:ldap://log4shell-generic-8ZnJfq2XFL3GWyaLyOpT${lower:ten}.w.nessus.org/nessus}`, "", "mobile", ua.Android},
 	//
